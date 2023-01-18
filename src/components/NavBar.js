@@ -1,9 +1,8 @@
-import React from "react";
+// import React, { useState } from "react";
 import GoogleSignin from "../img/btn_google_signin_dark_pressed_web.png";
-import { auth } from "../firebase";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
-
+import { auth } from "../firebase";
+import { useAuthState } from 'react-firebase-hooks/auth'
 const NavBar = () => {
   const [user] = useAuthState(auth);
 
@@ -13,7 +12,7 @@ const NavBar = () => {
   };
 
   const signOut = () => {
-    auth.signOut();
+    auth.signOut()
   };
 
   return (

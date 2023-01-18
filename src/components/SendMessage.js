@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import { auth, db } from "../firebase";
+import React, {useState} from "react";
+import { auth, db } from '../firebase'
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 
-const SendMessage = ({ scroll }) => {
-  const [message, setMessage] = useState("");
-
+const SendMessage = ({scroll}) => {
+  const [message, setMessage] = useState("")
   const sendMessage = async (event) => {
     event.preventDefault();
     if (message.trim() === "") {
@@ -20,10 +19,11 @@ const SendMessage = ({ scroll }) => {
       uid,
     });
     setMessage("");
-    scroll.current.scrollIntoView({ behavior: "smooth" });
+    scroll.current.scrollIntoView({behavior: "smooth"})
   };
+
   return (
-    <form onSubmit={(event) => sendMessage(event)} className="send-message">
+    <form onSubmit={(event)=> sendMessage(event)} className="send-message">
       <label htmlFor="messageInput" hidden>
         Enter Message
       </label>
@@ -34,7 +34,7 @@ const SendMessage = ({ scroll }) => {
         className="form-input__input"
         placeholder="type message..."
         value={message}
-        onChange={(e) => setMessage(e.target.value)}
+        onChange={(e)=> setMessage(e.target.value)}
       />
       <button type="submit">Send</button>
     </form>
